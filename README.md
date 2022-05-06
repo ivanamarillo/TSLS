@@ -12,3 +12,7 @@ Este comando instalará todas las dependencias en node_modules, junto con las ca
 .gitignoes y .json necesarios.
 
 En package.json podemos ver todas las librerías instaladas para poder utilizar en nuestro proyecto y los comandos de consola para poder correr el código en el navegador y crear versión de producción optimizado entre otros.
+
+Para correrlo en el navegador usar:
+
+`npm start`

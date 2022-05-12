@@ -1,5 +1,5 @@
-//ganchos
-import {useState} from 'react';
+import {useState} from 'react'; //gancho o hook
+import Button from '../Button/Button';
 
 const CountFunction = (props) => {
 
@@ -23,9 +23,9 @@ const CountFunction = (props) => {
     return (
         <div>
             <h1 style={{color:props.color}}>Contador Funcion</h1>
-            <button onClick={decrement}>-</button>
+            <Button handleClick={decrement} label='-' color='red'/>
             <h1 style={{color:props.color}}>{count}</h1>
-            <button onClick={increment}>+</button>
+            <Button handleClick={increment} label='+' color='green'/>
         </div>
     )
 }

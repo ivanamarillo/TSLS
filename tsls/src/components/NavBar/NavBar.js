@@ -13,4 +13,4 @@ const NavBar = _ => {
     )
 }
 
-export default NavBar();
+export default NavBar;

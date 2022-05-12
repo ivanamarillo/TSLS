@@ -21,8 +21,9 @@ const CountFunction = (props) => {
 
     console.log(props);
     return (
-        <div>
-            <h1 style={{color:props.color}}>Contador Funcion</h1>
+        <div style={{display:'flex'}}>
+            {props.children}
+            <h1 style={{color:props.color, paddingRight:10}}>Contador Funcion</h1>
             <Button handleClick={decrement} label='-' color='red'/>
             <h1 style={{color:props.color}}>{count}</h1>
             <Button handleClick={increment} label='+' color='green'/>

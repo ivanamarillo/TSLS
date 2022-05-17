@@ -3,11 +3,16 @@ import './NavBar.css';
 const NavBar = _ => {
     return (
         <nav className=''>
-            <h1>ECommerce</h1>
-            <div className=''>
-                <button>Celulares</button>
-                <button>Tablets</button>
-                <button>Notebook</button>
+            <div className='ia_logo'>
+                <img src='./images/logo.png'/>
+                <h1>TSLS</h1>
+            </div>
+            <div class='ia_navMenu'>
+                <li>Inicio</li>
+                <li>Colecciones</li>
+                <li>Blog</li>
+                <li>Contacto</li>
+                <li>Carrito</li>
             </div>
         </nav>
     )

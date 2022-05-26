@@ -8,7 +8,7 @@ const NavBar = _ => {
                 <img src='./images/logo.png'/>
                 <h1>TSLS</h1>
             </div>
-            <div class='ia_navMenu'>
+            <div className='ia_navMenu'>
                 <li>Inicio</li>
                 <li>Colecciones</li>
                 <li>Blog</li>

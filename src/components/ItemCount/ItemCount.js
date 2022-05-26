@@ -15,13 +15,6 @@ function ItemCount(props){
         setCount(count + 1);
     }
     return (
-        // <div className="ia_itemCountContainer">
-        //     <div className="ia_productHeaderContainer">
-        //         <h2>Nombre del Producto</h2>
-        //     </div>
-        //     <div className="ia_productImageContainer">
-        //         <p>Imagen del producto</p>
-        //     </div>
             <div className="ia_productCountContainer">
                 <div className="ia_counter">
                     <button onClick={decrement}>-</button>
@@ -31,7 +24,6 @@ function ItemCount(props){
                 <button>Agregar Producto</button>
                 <p>Cantidad disponible: <span>{props.inventario}</span></p>
             </div>
-        // </div>
     );
 }
 

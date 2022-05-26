@@ -1,11 +1,20 @@
 import './ItemListContainer.css';
-import ItemCount from '../ItemCount/ItemCount';
+import ItemList from '../ItemList/ItemList';
+import {useState, useEffect} from 'react';
+import { obtenerProductos } from '../../asyncmock';
 
-function ItemListContainer(props){
+function ItemListContainer(){
+    const [productos, almacenarProductos] = useState([]);
+
+    useEffect(() => {
+        obtenerProductos().then(res => {
+            almacenarProductos(res);
+        })
+    })
+
     return (
         <div className='ia_itemListContainer'>
-            {/* <h2>{props.greeting}</h2> */}
-            <ItemCount inventario={20}/>
+            <ItemList productos={productos}/>
         </div>
     );
 }

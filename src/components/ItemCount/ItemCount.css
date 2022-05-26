@@ -1,31 +1,3 @@
-.ia_itemCountContainer{
-    display:flex;
-    flex-direction:column;
-    justify-content:center;
-    align-items:center;
-    /* background-color: rgb(1, 51, 58); */
-    border-radius:5%;
-    border: 1px solid white;
-    padding-bottom:20px;
-}
-
-.ia_productHeaderContainer{
-    margin:10px 10px;
-}
-
-.ia_productImageContainer{
-    width:180px;
-    height:180px;
-    margin:10px 0; 
-    background-color:rgb(62, 69, 105);
-    border-radius: 5%;
-    /* Temporal, esto se debe quitar al poner la imagen */
-    display:flex;
-    flex-direction:column;
-    justify-content:center;
-    align-items:center;
-}
-
 .ia_productCountContainer{
     display:flex;
     flex-direction:column;
@@ -44,5 +16,5 @@
 .ia_counter{
     display:flex;
     justify-content:space-between;
-    align-items:center
+    align-items:center;
 }

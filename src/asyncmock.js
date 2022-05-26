@@ -1,7 +1,7 @@
 const productos = [
     {
         id:1,
-        nombre:'Chaqueta de Invierno',
+        nombre:'Chaqueta de invierno',
         precio: 500,
         imagen:'../images/p1.jpg',
         tipo:'sport',
@@ -10,7 +10,7 @@ const productos = [
     },
     {
         id:2,
-        nombre:'Tennis para hombres color rojo',
+        nombre:'Tennis para Hombre',
         precio: 125,
         imagen:'../images/p2.jpg',
         tipo:'sport',
@@ -28,7 +28,7 @@ const productos = [
     },
     {
         id:4,
-        nombre:'Jeans Clásicos para mujer',
+        nombre:'Jeans clásicos para mujer',
         precio: 120,
         imagen:'../images/p4.jpg',
         tipo:'casual',

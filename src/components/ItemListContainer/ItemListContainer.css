@@ -2,7 +2,7 @@
 .ia_itemListContainer{
     background-color:rgb(8, 36, 36);
     color:white;
-    height:300vh;
+    height:1000vh;
     display:flex;
     flex-wrap: wrap;
     justify-content:space-evenly;

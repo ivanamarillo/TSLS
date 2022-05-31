@@ -6,7 +6,8 @@ const productos = [
         imagen:'../images/p1.jpg',
         tipo:'sport',
         inventario:20,
-        detalles:'Chaqueta de invierno para mujer'
+        detalles:'Chaqueta de invierno para mujer',
+        descripcion:'Chaqueta especialmente diseñada para hacer deporte, con aislante térmico e impermeabilidad. También tiene cierre y protector anti-robo para los bolsillos'
     },
     {
         id:2,
@@ -15,7 +16,8 @@ const productos = [
         imagen:'../images/p2.jpg',
         tipo:'sport',
         inventario:10,
-        detalles:'Zapatos deportivos para hombre con cámara de aire'
+        detalles:'Zapatos deportivos para hombre con cámara de aire',
+        descripcion:'Zapatos deportivos para hombre con diseño moderno y reflexión nocturna. Tiene cámara de aire y ventilación en la parte delantera.'
     },
     {
         id:3,
@@ -24,7 +26,8 @@ const productos = [
         imagen:'../images/p3.jpg',
         tipo:'casual',
         inventario:30,
-        detalles:'Chaqueta de cuero de becerro color marrón'
+        detalles:'Chaqueta de cuero de becerro color marrón',
+        descripcion:'Chaqueta de cuero de becerro color marrón con botones metálicos y de alta duración. Refuerzo interno de alta calidad para más comodidad y comfort.'
     },
     {
         id:4,
@@ -33,7 +36,8 @@ const productos = [
         imagen:'../images/p4.jpg',
         tipo:'casual',
         inventario:5,
-        detalles:'Jeans Clásicos para mujer con corte ajustado'
+        detalles:'Jeans Clásicos para mujer con corte ajustado',
+        descripcion:'Jeans clásicos para mujer inspirados en la década del 70. Al mejor estilo del rock de la época, esta prenda tiene un corte clásico y viene en diferentes colores.'
     }
 ]
 
@@ -43,4 +47,16 @@ export const obtenerProductos = () => {
             res(productos);
         }, 2000);
     })
+}
+
+export const traerProductoPorId = (myId) => {
+    return new Promise((res) => {
+        setTimeout(() => {
+            for(let i = 0; i < productos.length; i++){
+                if(productos[i].id === myId){
+                    res(productos[i]);
+                }
+            }
+        }, 2000);
+    });
 }

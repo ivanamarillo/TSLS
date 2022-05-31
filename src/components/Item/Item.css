@@ -5,8 +5,8 @@
         align-items:center;
         /* background-color: rgb(1, 51, 58); */
         width:400px;
-        height:500px;
-        border-radius:5%;
+        /* height:500px; */
+        border-radius:15px;
         border: 1px solid white;
         padding-bottom:20px;
         margin:10px 10px;

@@ -1,0 +1,8 @@
+.ia_itemDetailContainer{
+    width:90%;
+    /* height:900px; */
+    margin-top:10px;
+    border-radius: 15px;
+    padding:10px 5px;
+    background-color:grey;
+}

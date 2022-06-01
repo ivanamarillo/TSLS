@@ -6,6 +6,10 @@ nav{
     padding:10px 20px;
 }
 
+a {
+    text-decoration:none;
+}
+
 nav h1{
     color:rgb(36, 134, 163);
 }
@@ -29,7 +33,7 @@ nav h1{
     align-items:center;
 }
 
-li {
+.ia_navMenu a {
     list-style:none;
     text-decoration:none;
     color:rgb(0, 148, 148);
@@ -39,6 +43,6 @@ li {
     cursor:pointer;
 }
 
-li:hover{
+.ia_navMenu a:hover{
     color:rgb(200, 255, 0);
 }

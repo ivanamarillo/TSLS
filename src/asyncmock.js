@@ -45,7 +45,7 @@ export const obtenerProductos = () => {
     return new Promise((res) => {
         setTimeout(() => {
             res(productos);
-        }, 2000);
+        }, 1000);
     })
 }
 
@@ -57,6 +57,6 @@ export const traerProductoPorId = (myId) => {
                     res(productos[i]);
                 }
             }
-        }, 2000);
+        }, 1000);
     });
 }

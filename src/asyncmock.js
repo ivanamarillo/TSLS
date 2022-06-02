@@ -56,6 +56,23 @@ export const obtenerProductos = () => {
 export const traerProductoPorId = (myId) => {
     return new Promise((res) => {
         setTimeout(() => {
+            res(productos.find(producto => producto.id === myId))
+        }, 500);
+    });
+}
+
+export const obtenerProductosPorCategoria = (cat) => {
+    return new Promise(res => {
+        setTimeout(_ => {
+            res(productos.filter(producto => producto.tipo === cat || producto.gender === cat))
+        }, 500)
+    })
+}
+
+/*
+export const traerProductoPorId = (myId) => {
+    return new Promise((res) => {
+        setTimeout(() => {
             for(let i = 0; i < productos.length; i++){
                 if(productos[i].id === myId){
                     res(productos[i]);
@@ -78,3 +95,4 @@ export const obtenerProductosPorCategoria = (cat) => {
         })
     })
 }
+*/

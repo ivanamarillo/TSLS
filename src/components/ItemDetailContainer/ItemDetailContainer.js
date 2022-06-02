@@ -11,9 +11,8 @@ function ItemDetailContainer(){
     useEffect(() => {
         traerProductoPorId(Number(productId)).then(res => {
             traerProducto(res);
-            console.log(producto);
         })
-    }, [])
+    }, [productId])
     return(
         <div className="ia_itemDetailContainer">
             {/* {producto.descripcion} */}

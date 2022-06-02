@@ -18,7 +18,7 @@ function ItemListContainer(){
                 almacenarProductos(res);
             })
         }
-    })
+    }, [categoryType])
 
     return (
         <div className='ia_itemListContainer'>

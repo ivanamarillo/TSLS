@@ -43,6 +43,10 @@ nav h1{
     cursor:pointer;
 }
 
+.ia_navMenu .ia_active{
+    color:rgb(200, 255, 0);    
+}
+
 .ia_navMenu a:hover{
     color:rgb(200, 255, 0);
 }

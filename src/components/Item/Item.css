@@ -54,7 +54,7 @@
     font-size:20px;
 }
 
-.ia_item button{
+.ia_detailButton{
     background-color:rgb(0, 56, 78);
     color:white;
     padding:5px 5px;
@@ -63,6 +63,6 @@
     transition:all 0.5s;
 }
 
-.ia_item button:hover{
+.ia_item button:hover, .ia_detailButton:hover{
     color: lime; 
 }

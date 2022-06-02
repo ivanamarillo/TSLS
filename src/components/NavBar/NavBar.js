@@ -12,10 +12,10 @@ const NavBar = _ => {
                 </div>
             </Link>
             <div className='ia_navMenu'>
-                <Link to='/mujer'>Mujer</Link>
-                <Link to='/hombre'>Hombre</Link>
-                <Link to='/sport'>Sport</Link>
-                <Link to='/casual'>Casual</Link>
+                <Link to='/category/mujer'>Mujer</Link>
+                <Link to='/category/hombre'>Hombre</Link>
+                <Link to='/category/sport'>Sport</Link>
+                <Link to='/category/casual'>Casual</Link>
                 <Link to='/carrito'><CartWidget/></Link>
             </div>
         </nav>

@@ -18,7 +18,7 @@ function Item(props){
                 <p>${props.precio}</p>
                 <h2>{props.tipo}</h2>
             </div>
-            <ItemCount inventario={props.inventario}/>
+            {/* <ItemCount inventario={props.inventario}/> */}
             {/* <button onClick={() => setShow(!show)}>Más Detalles del Producto</button>
             {show ? <ItemDetailContainer {...props}/>: null} */}
             <Link className='ia_detailButton' to={`/detail/${props.id}`}>Más Detalles del producto</Link>

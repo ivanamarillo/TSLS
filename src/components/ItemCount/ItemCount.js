@@ -1,7 +1,6 @@
 import './ItemCount.css'
 import {useState} from 'react';
 
-
 function ItemCount(props){
     const [count, setCount] = useState(0);
 
@@ -21,7 +20,7 @@ function ItemCount(props){
                     <p>{count}</p>
                     <button onClick={increment}>+</button>
                 </div>
-                <button>Agregar Producto</button>
+                <button onClick={() => props.agregar(count)}>Agregar Producto</button>
                 <p>Cantidad disponible: <span>{props.inventario}</span></p>
             </div>
     );

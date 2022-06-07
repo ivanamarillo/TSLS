@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- CDNs de React para poder escribir JSX (asi o se usa en realidad)-->
+    <script src="https://unpkg.com/react@17/umd/react.development.js" crossorigin></script>
+    <script src="https://unpkg.com/react-dom@17/umd/react-dom.development.js" crossorigin></script>
+    <script src="https://unpkg.com/babel-standalone@6/babel.min.js"></script>
+    <title>20220502 - Clase 0 - Nivelacion</title>
+</head>
+<style>
+    picture{
+        display:flex;
+        flex-direction:column;
+        text-align:center;
+        width:100px;
+        margin-bottom:10px;
+    }
+    img{
+        border-radius:50%;
+        margin-bottom:10px;
+        box-shadow:0 0 15px #555;
+    }
+    .disabled{
+        opacity:0.3;
+    }
+</style>
+<body>
+    <h1>Bienvenidos al Curso de React</h1>
+    <picture>
+        <img src="https://randomuser.me/api/portraits/lego/1.jpg" alt="img"/>
+        Lego
+    </picture>
+    <div id="root"></div>
+    <div id="rootReact"></div>
+    <div id="rootReactJSX"></div>
+    <!--Concepto de componente pero en HTML y Vanilla JS-->
+    <script type="text/babel">
+        //Reutilizando un componente por medio de una funcion
+        const root = document.getElementById('root');
+        
+        const avatar = (params) => {
+            return `<picture>
+                        <img src="https://randomuser.me/api/portraits/lego/${params.legoID}.jpg" alt="img"/>
+                        ${params.name}
+                    </picture>`
+        };
+
+        root.innerHTML = avatar({legoID:2, name:'Seba'});
+        root.innerHTML += avatar({legoID:3, name:'Ivan'});
+        root.innerHTML += avatar({legoID:7, name:'Matias'});
+
+        //agregando listenters
+        root.querySelectorAll('img').forEach(img => {
+            img.addEventListener('click', () => {
+                img.classList.toggle('disabled');
+            })
+        });
+
+        //Mismo ejemplo pero con React (usando la librería con los CDNs de arriba)
+        const r = React.createElement;
+
+        const Avatar = () => {
+            const src = 'https://randomuser.me/api/portraits/lego/1.jpg';
+            /*-----------------------------------------------------------
+            a r() le paso como primer param el tipo de etiqueta o
+            elemento a crear, segundo los parametros de ese elemento
+            y tercero un array con los hijos tambien por funcion r()
+            -----------------------------------------------------------*/
+            return r('picture', {}, [r('img', {src, alt:'lego 1'}), 'React Lego con CDN :)'])
+        }
+        //se usa el CDN react DOM para conectar mi componente al div con id rootReact
+        ReactDOM.render(r(Avatar), rootReact);
+
+        //Mismo ejemplo pero con React y JSX (Así se debe trabajar!!)
+        const AvatarJSX = () => {
+            const src = 'https://randomuser.me/api/portraits/lego/1.jpg';
+
+            return (
+                <picture>
+                    <img src={src} alt='Lego 1'/>
+                    React Lego con JSX
+                </picture>
+            );
+        }
+
+        ReactDOM.render(r(AvatarJSX), rootReactJSX);
+    </script>
+</body>
+</html>

@@ -1,10 +1,15 @@
 import './CartWidget.css';
+import {Context} from '../../App';
+import {useContext} from 'react';
 
 function CartWidget(){
+    const {getCantidadEnCarrito} = useContext(Context); 
+    const cantidad = getCantidadEnCarrito();
+
     return (
         <div className="ia_cartWidgetContainer">
             <i className="fa-solid fa-cart-shopping"></i>
-            <p>4</p>
+            <p>{cantidad}</p>
         </div>
     );
 }

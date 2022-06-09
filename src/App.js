@@ -12,20 +12,34 @@ function App() {
   const [cart, setCart] = useState([]);
 
   const agregarItem = (productoAAgregar) => {
-    let incluido = false;
-    for(const producto of cart){
-      if(producto.id === productoAAgregar.id){
-        incluido = true;
-      }
-    }
+    let incluido = isInCart(productoAAgregar.id);
+    
     if(!incluido){
       setCart([...cart, productoAAgregar]);
     }
   };
+
+  const isInCart = (id) => {
+    for(const producto of cart){
+      if(producto.id === id){
+        return true;
+      }
+    }
+    return false;
+  }
+
+  const getCantidadEnCarrito = () => {
+    let productosTotales = 0;
+    cart.forEach(producto => {
+      productosTotales += producto.cantidad;
+    })
+    return productosTotales;
+  };
+
   console.log(cart);
   return (
     <div>
-      <Context.Provider value={{cart, agregarItem}}>
+      <Context.Provider value={{cart, agregarItem, getCantidadEnCarrito}}>
         <BrowserRouter>
           <NavBar/>
         {/* <ItemListContainer/> */}

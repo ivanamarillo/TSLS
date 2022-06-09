@@ -16,7 +16,7 @@ const NavBar = _ => {
                 <NavLink to='/category/hombre' className={({isActive}) => isActive ? 'ia_active':'ia_notActive'}>Hombre</NavLink>
                 <NavLink to='/category/sport' className={({isActive}) => isActive ? 'ia_active':'ia_notActive'}>Sport</NavLink>
                 <NavLink to='/category/casual' className={({isActive}) => isActive ? 'ia_active':'ia_notActive'}>Casual</NavLink>
-                <NavLink to='/carrito' className={({isActive}) => isActive ? 'ia_active':'ia_notActive'}><CartWidget/></NavLink>
+                <NavLink to='/cart' className={({isActive}) => isActive ? 'ia_active':'ia_notActive'}><CartWidget/></NavLink>
             </div>
         </nav>
     )

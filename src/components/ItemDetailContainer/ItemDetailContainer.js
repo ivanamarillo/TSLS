@@ -4,7 +4,7 @@ import {useState, useEffect} from 'react';
 import {traerProductoPorId} from '../../asyncmock';
 import {useParams} from 'react-router-dom';
 
-function ItemDetailContainer(){
+function ItemDetailContainer(props){
     const [producto, traerProducto] = useState({});
     const {productId} = useParams();
 

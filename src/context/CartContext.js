@@ -26,6 +26,17 @@ export function CartContextProvider({children}) {
         setCart([]);
     }
 
+    const removerProducto = (id) => {
+        let myCart = [...cart];
+        for(let i = 0; i < cart.length; i++){
+            if(cart[i].id === id){
+                myCart.splice(i, 1);
+                setCart(myCart);
+                break;
+            }
+        }
+    }
+
     const getCantidadEnCarrito = () => {
         let productosTotales = 0;
         cart.forEach(producto => {
@@ -35,7 +46,7 @@ export function CartContextProvider({children}) {
     };
 
     return (
-        <CartContext.Provider value={{cart, agregarItem, getCantidadEnCarrito, limpiarCarrito}}>
+        <CartContext.Provider value={{cart, agregarItem, getCantidadEnCarrito, limpiarCarrito, removerProducto}}>
             {children}
         </CartContext.Provider>
     )

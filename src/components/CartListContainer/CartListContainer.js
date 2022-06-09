@@ -3,7 +3,7 @@ import {useContext} from 'react';
 import CartContext from '../../context/CartContext';
 
 function CartListContainer() {
-    const {cart, limpiarCarrito} = useContext(CartContext);
+    const {cart, limpiarCarrito, removerProducto} = useContext(CartContext);
     return (
         <div>
             <h1>Carrito de Compras</h1>
@@ -16,6 +16,7 @@ function CartListContainer() {
                             <div>Q: {producto.cantidad}</div>
                             <div>$: {producto.precio}</div>
                             <div>Total: {(producto.cantidad * producto.precio)}</div>
+                            <button onClick={() => removerProducto(producto.id)}>X</button>
                         </div>
                     )
                 })}

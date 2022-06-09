@@ -1,13 +1,23 @@
+import './CartListContainer.css';
 import {useContext} from 'react';
-import {Context} from '../../App';
+import CartContext from '../../context/CartContext';
 
 function CartListContainer() {
-    const {cart} = useContext(Context);
+    const {cart} = useContext(CartContext);
     return (
         <div>
             <h1>Carrito de Compras</h1>
             <div>
-                {cart.map(producto => <div key={producto.id}>{producto.nombre}</div>)}
+                {cart.map(producto => {
+                    return(
+                        <div className="ia_productoEnCarrito">
+                            <div key={producto.id}>{producto.nombre}</div>
+                            <div>Q: {producto.cantidad}</div>
+                            <div>$: {producto.precio}</div>
+                            <div>Total: {(producto.cantidad * producto.precio)}</div>
+                        </div>
+                    )
+                })}
             </div>
         </div>
     );

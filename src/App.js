@@ -5,41 +5,14 @@ import {BrowserRouter, Routes, Route} from 'react-router-dom';
 import ItemDetailContainer from './components/ItemDetailContainer/ItemDetailContainer';
 import CartListContainer from './components/CartListContainer/CartListContainer';
 import {useState, createContext} from 'react';
+import {CartContextProvider} from './context/CartContext'; 
 
-export const Context = createContext();
 
 function App() {
-  const [cart, setCart] = useState([]);
 
-  const agregarItem = (productoAAgregar) => {
-    let incluido = isInCart(productoAAgregar.id);
-    
-    if(!incluido){
-      setCart([...cart, productoAAgregar]);
-    }
-  };
-
-  const isInCart = (id) => {
-    for(const producto of cart){
-      if(producto.id === id){
-        return true;
-      }
-    }
-    return false;
-  }
-
-  const getCantidadEnCarrito = () => {
-    let productosTotales = 0;
-    cart.forEach(producto => {
-      productosTotales += producto.cantidad;
-    })
-    return productosTotales;
-  };
-
-  console.log(cart);
   return (
     <div>
-      <Context.Provider value={{cart, agregarItem, getCantidadEnCarrito}}>
+      <CartContextProvider>
         <BrowserRouter>
           <NavBar/>
         {/* <ItemListContainer/> */}
@@ -50,7 +23,7 @@ function App() {
             <Route path='/cart' element={<CartListContainer/>}/>
           </Routes>
         </BrowserRouter>
-      </Context.Provider>
+      </CartContextProvider>
     </div>
   );
 }

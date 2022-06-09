@@ -1,0 +1,8 @@
+.ia_productoEnCarrito{
+    display:flex;
+    justify-content:space-between;
+}
+
+.ia_productoEnCarrito div{
+    padding:20px;
+}

@@ -2,11 +2,11 @@ import './ItemDetail.css';
 import ItemCount from '../ItemCount/ItemCount';
 import {useState, useContext} from 'react';
 import {Link} from 'react-router-dom';
-import {Context} from '../../App';
+import CartContext from '../../context/CartContext';
 
 function ItemDetail(props){
     const [cantidad, setCantidad] = useState(0);
-    const {agregarItem} = useContext(Context);
+    const {agregarItem} = useContext(CartContext);
 
     const handleOnAdd = (cantidad) => {
         console.log('Agregado');

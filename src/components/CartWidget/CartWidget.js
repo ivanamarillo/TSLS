@@ -1,9 +1,9 @@
 import './CartWidget.css';
-import {Context} from '../../App';
+import CartContext from '../../context/CartContext';
 import {useContext} from 'react';
 
 function CartWidget(){
-    const {getCantidadEnCarrito} = useContext(Context); 
+    const {getCantidadEnCarrito} = useContext(CartContext); 
     const cantidad = getCantidadEnCarrito();
 
     return (

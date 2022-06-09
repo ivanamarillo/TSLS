@@ -3,11 +3,12 @@ import {useContext} from 'react';
 import CartContext from '../../context/CartContext';
 
 function CartListContainer() {
-    const {cart} = useContext(CartContext);
+    const {cart, limpiarCarrito} = useContext(CartContext);
     return (
         <div>
             <h1>Carrito de Compras</h1>
             <div>
+                <button onClick={() => limpiarCarrito()}>Limpiar Carrito</button>
                 {cart.map(producto => {
                     return(
                         <div className="ia_productoEnCarrito">

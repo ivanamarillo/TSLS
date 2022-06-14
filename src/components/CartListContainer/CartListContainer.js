@@ -29,6 +29,12 @@ function CartListContainer() {
                         </div>
                     )
                 })}
+                <h2>Total: {cart.map(producto => {
+                    return (
+                        producto.cantidad * producto.precio
+                    )
+                }).reduce((val1, val2) => val1 + val2)}</h2>
+                <button>Generar Orden</button>
             </div>
         </div>
     );

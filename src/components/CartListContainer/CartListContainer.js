@@ -1,9 +1,18 @@
 import './CartListContainer.css';
 import {useContext} from 'react';
 import CartContext from '../../context/CartContext';
+import {Link} from 'react-router-dom';
 
 function CartListContainer() {
     const {cart, limpiarCarrito, removerProducto} = useContext(CartContext);
+    if(!cart.length){
+        return (
+            <div>
+                <div>No hay productos en el carrito</div>
+                <Link to='/'>Volver a productos</Link>
+            </div>
+        );
+    }
     return (
         <div>
             <h1>Carrito de Compras</h1>

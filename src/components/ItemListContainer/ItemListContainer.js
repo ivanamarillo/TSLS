@@ -1,23 +1,41 @@
 import './ItemListContainer.css';
 import ItemList from '../ItemList/ItemList';
 import {useState, useEffect} from 'react';
-import { obtenerProductos, obtenerProductosPorCategoria } from '../../asyncmock';
+import {db} from '../../services/firebase';
 import {useParams} from 'react-router-dom';
+import {getDocs, collection, query, where} from 'firebase/firestore';
+// import { obtenerProductos, obtenerProductosPorCategoria } from '../../asyncmock';
 
 function ItemListContainer(){
     const [productos, almacenarProductos] = useState([]);
     const {categoryType} = useParams();
 
     useEffect(() => {
-        if(!categoryType){
-            obtenerProductos().then(res => {
-                almacenarProductos(res);
-            })
-        }else{
-            obtenerProductosPorCategoria(categoryType).then(res => {
-                almacenarProductos(res);
-            })
-        }
+        // Esto ahora pide los datos a firebase
+        const valorDeReferencia = categoryType ? query(collection(db, 'productos'), where('tipo', '==', categoryType)) : collection(db, 'productos');
+        console.log(categoryType);
+        getDocs(valorDeReferencia)
+        .then(res => {
+            const productos = res.docs.map(doc => {
+                return {id:doc.id, ...doc.data()}
+            });
+            almacenarProductos(productos);
+        })
+        .catch(err => {
+            console.log(err);
+        })
+
+
+        // Esto se reemplaza por Firebase
+        // if(!categoryType){
+        //     obtenerProductos().then(res => {
+        //         almacenarProductos(res);
+        //     })
+        // }else{
+        //     obtenerProductosPorCategoria(categoryType).then(res => {
+        //         almacenarProductos(res);
+        //     })
+        // }
     }, [categoryType])
 
     return (

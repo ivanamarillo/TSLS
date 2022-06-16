@@ -12,8 +12,8 @@ function ItemListContainer(){
 
     useEffect(() => {
         // Esto ahora pide los datos a firebase
-        const valorDeReferencia = categoryType ? query(collection(db, 'productos'), where('tipo', '==', categoryType)) : collection(db, 'productos');
-        console.log(categoryType);
+        const valorDeReferencia = categoryType ? query(collection(db, 'productos'), where('tipoGenre', 'array-contains', categoryType)) : collection(db, 'productos');
+
         getDocs(valorDeReferencia)
         .then(res => {
             const productos = res.docs.map(doc => {

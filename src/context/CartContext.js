@@ -45,8 +45,14 @@ export function CartContextProvider({children}) {
         return productosTotales;
     };
 
+    const obtenerTotal = () => {
+        return cart.map(producto => {
+            return producto.cantidad * producto.precio;
+        }).reduce((val1, val2) => val1 + val2);
+    };
+
     return (
-        <CartContext.Provider value={{cart, agregarItem, getCantidadEnCarrito, limpiarCarrito, removerProducto}}>
+        <CartContext.Provider value={{cart, agregarItem, getCantidadEnCarrito, limpiarCarrito, removerProducto, obtenerTotal}}>
             {children}
         </CartContext.Provider>
     )

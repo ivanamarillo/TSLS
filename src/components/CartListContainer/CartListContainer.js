@@ -2,9 +2,32 @@ import './CartListContainer.css';
 import {useContext} from 'react';
 import CartContext from '../../context/CartContext';
 import {Link} from 'react-router-dom';
+import {addDoc, collection} from 'firebase/firestore';
+import {db} from '../../services/firebase';
 
 function CartListContainer() {
-    const {cart, limpiarCarrito, removerProducto} = useContext(CartContext);
+    const {cart, limpiarCarrito, removerProducto, obtenerTotal} = useContext(CartContext);
+
+    const crearOrden = () => {
+        const objOrder = {
+            comprador:{
+                //esto se reemplazará por el formulario
+                nombre:'Ivan Amarillo',
+                email:'ivan@mail.com',
+                tel:'1234567',
+                direccion:'Av siempre viva 745',
+                comentarios:'por favor dejar en el primer piso'
+            },
+            items:cart,
+            total:obtenerTotal()
+        }
+        console.log(objOrder);
+        const collectionRef = collection(db, 'ordenes');
+        addDoc(collectionRef, objOrder).then(({id}) => {
+            console.log(`Se creó ${id}`);
+        })
+    };
+
     if(!cart.length){
         return (
             <div>
@@ -29,12 +52,8 @@ function CartListContainer() {
                         </div>
                     )
                 })}
-                <h2>Total: {cart.map(producto => {
-                    return (
-                        producto.cantidad * producto.precio
-                    )
-                }).reduce((val1, val2) => val1 + val2)}</h2>
-                <button>Generar Orden</button>
+                <h2>Total: {obtenerTotal()}</h2>
+                <button onClick={() => crearOrden()}>Generar Orden</button>
             </div>
         </div>
     );

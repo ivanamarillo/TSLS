@@ -4,28 +4,36 @@ import CartContext from '../../context/CartContext';
 import {Link} from 'react-router-dom';
 import {addDoc, collection} from 'firebase/firestore';
 import {db} from '../../services/firebase';
+import Form from '../Form/Form';
+import {useState} from 'react';
 
 function CartListContainer() {
     const {cart, limpiarCarrito, removerProducto, obtenerTotal} = useContext(CartContext);
-
+    const [infoOrden, obtenerInfoOrden] = useState({
+        nombre:'',
+        email:'',
+        tel:'',
+        direccion:''
+    })
     const crearOrden = () => {
-        const objOrder = {
-            comprador:{
-                //esto se reemplazará por el formulario
-                nombre:'Ivan Amarillo',
-                email:'ivan@mail.com',
-                tel:'1234567',
-                direccion:'Av siempre viva 745',
-                comentarios:'por favor dejar en el primer piso'
-            },
-            items:cart,
-            total:obtenerTotal()
-        }
+        const objOrder = {...infoOrden, items:cart, total:obtenerTotal()};
+        // const objOrder = {
+        //     comprador:{
+        //         //esto se reemplazará por el formulario
+        //         nombre:'Ivan Amarillo',
+        //         email:'ivan@mail.com',
+        //         tel:'1234567',
+        //         direccion:'Av siempre viva 745'
+        //     },
+        //     items:cart,
+        //     total:obtenerTotal()
+        // }
         console.log(objOrder);
         const collectionRef = collection(db, 'ordenes');
         addDoc(collectionRef, objOrder).then(({id}) => {
             console.log(`Se creó ${id}`);
         })
+        limpiarCarrito();
     };
 
     if(!cart.length){
@@ -53,7 +61,7 @@ function CartListContainer() {
                     )
                 })}
                 <h2>Total: {obtenerTotal()}</h2>
-                <button onClick={() => crearOrden()}>Generar Orden</button>
+                <Form infoOrden={infoOrden} obtenerInfoOrden={obtenerInfoOrden} crearOrden={crearOrden}/>
             </div>
         </div>
     );

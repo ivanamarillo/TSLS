@@ -1,0 +1,25 @@
+nav{
+    background-color:black;
+    color:rgb(200,200,200);
+    padding:10px 30px;
+    display:flex;
+    justify-content:space-between;
+}
+
+.ia_navBarMenu{
+    width:70%;
+    list-style:none;
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+}
+
+li{
+    /* font-weight:bold; */
+    cursor:pointer;
+    transition:color 1s;
+}
+
+li:hover{
+    color:rgb(5, 247, 255);
+}

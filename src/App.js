@@ -1,14 +1,12 @@
-/*--------------------------------
+/*-------------------------------------------------------------------
 Este es el concepto de componente:
 
-AvatarJSX es un componente que
-estoy insertando en el componente
+AvatarJSX es un componente que estoy insertando en el componente
 App.
 
-Puedo utilizarlo cuantas veces
-quiera cambiando sus parámetros
-por 'props'-
---------------------------------*/
+Puedo utilizarlo cuantas veces quiera cambiando sus parámetros por
+'props'.
+-------------------------------------------------------------------*/
 
 const AvatarJSX = (props) => {
   const src = `https://randomuser.me/api/portraits/lego/${props.id}.jpg`;

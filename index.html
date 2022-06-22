@@ -38,7 +38,9 @@
     <div id="rootReactJSX"></div>
     <!--Concepto de componente pero en HTML y Vanilla JS-->
     <script type="text/babel">
-        //Reutilizando un componente por medio de una funcion
+        //---------------------------------------------------------------
+        //Reutilizando un componente por medio de una funcion (Vanilla JS)
+        //---------------------------------------------------------------
         const root = document.getElementById('root');
         
         const avatar = (params) => {
@@ -59,7 +61,9 @@
             })
         });
 
+        //---------------------------------------------------------------
         //Mismo ejemplo pero con React (usando la librería con los CDNs de arriba)
+        //---------------------------------------------------------------
         const r = React.createElement;
 
         const Avatar = () => {
@@ -74,7 +78,9 @@
         //se usa el CDN react DOM para conectar mi componente al div con id rootReact
         ReactDOM.render(r(Avatar), rootReact);
 
+        //---------------------------------------------------------------
         //Mismo ejemplo pero con React y JSX (Así se debe trabajar!!)
+        //---------------------------------------------------------------
         const AvatarJSX = () => {
             const src = 'https://randomuser.me/api/portraits/lego/1.jpg';
 

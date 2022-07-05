@@ -9,7 +9,6 @@ function ItemDetail(props){
     const {agregarItem} = useContext(CartContext);
 
     const handleOnAdd = (cantidad) => {
-        console.log('Agregado');
         setCantidad(cantidad);
         agregarItem({id:props.producto.id, nombre:props.producto.nombre, precio:props.producto.precio, cantidad});
     }

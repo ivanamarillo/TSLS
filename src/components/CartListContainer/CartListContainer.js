@@ -17,21 +17,9 @@ function CartListContainer() {
     })
     const crearOrden = () => {
         const objOrder = {...infoOrden, items:cart, total:obtenerTotal()};
-        // const objOrder = {
-        //     comprador:{
-        //         //esto se reemplazará por el formulario
-        //         nombre:'Ivan Amarillo',
-        //         email:'ivan@mail.com',
-        //         tel:'1234567',
-        //         direccion:'Av siempre viva 745'
-        //     },
-        //     items:cart,
-        //     total:obtenerTotal()
-        // }
-        console.log(objOrder);
         const collectionRef = collection(db, 'ordenes');
         addDoc(collectionRef, objOrder).then(({id}) => {
-            console.log(`Se creó ${id}`);
+            alert(`Se creó orden número: ${id}`);
         })
         limpiarCarrito();
     };
